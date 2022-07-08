@@ -1,27 +1,30 @@
+import java.util.Arrays;
 import java.util.Scanner;
 
 /**
  * @author sjw
  * @date 2022/7/8 - 15:23
  */
-public class kk {
+public class sort_pop {
     public static void main(String[] args) {
-        int[][] arr = new int[100][100];
-        Scanner sc = new Scanner(System.in);
-        int n = sc.nextInt();
-        int k = 1 = k;
-                k++;
-            }
-        }
+        int[] arr = new int[]{9, 8, 7, 6, 5, 4, 3, 2, 1};
+        int[] arrs = MaoPao(arr);
+        System.out.println(Arrays.toString(arrs));
+    }
 
-        int t = 0;
-        for (int i = 0; i < n; i++, t++) {
-            for (int j = 0; j < n-t; j++) {
-                System.out.print(arr[i][j] + " ");
-                if(i + j == n - 1) {
-                    System.out.println();
+    public static int[] MaoPao(int[] arr) {
+        //外层循环
+        for (int i = 0; i < arr.length - 1; i++) {
+            //内层循环
+            for (int j = 0; j < arr.length - 1 - i; j++) {
+                //两两比较
+                if (arr[j] > arr[j + 1]) {
+                    int temp = arr[j];
+                    arr[j] = arr[j + 1];
+                    arr[j + 1] = temp;
                 }
             }
         }
+        return arr;
     }
 }
